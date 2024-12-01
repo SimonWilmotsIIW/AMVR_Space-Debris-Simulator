@@ -19,8 +19,8 @@ public class VRObjectSelector : MonoBehaviour
             rayVisualizer.endWidth = 0.05f;
             rayVisualizer.positionCount = 2;
             rayVisualizer.material = new Material(Shader.Find("Sprites/Default"));
-            rayVisualizer.startColor = Color.red;
-            rayVisualizer.endColor = Color.red;
+            rayVisualizer.startColor = Color.cyan;
+            rayVisualizer.endColor = Color.cyan;
         }
     }
     private void Update()

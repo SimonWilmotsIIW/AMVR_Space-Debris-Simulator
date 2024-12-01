@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b6a40a34e92e4eb4eac746f079fc76d9, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -290,6 +290,146 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4643521465287934, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
   m_PrefabInstance: {fileID: 399826764}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &511534460
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1335247657}
+    m_Modifications:
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0108
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0108
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0108
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.408
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311232069959147296, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      propertyPath: m_Name
+      value: ISS
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4311232069959147296, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 511534464}
+    - targetCorrespondingSourceObject: {fileID: 4311232069959147296, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 511534463}
+    - targetCorrespondingSourceObject: {fileID: 4311232069959147296, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 511534465}
+  m_SourcePrefab: {fileID: 100100000, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+--- !u!4 &511534461 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1502334781903100170, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+  m_PrefabInstance: {fileID: 511534460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &511534462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4311232069959147296, guid: 87d141416a321c848a5ea610828b7285, type: 3}
+  m_PrefabInstance: {fileID: 511534460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &511534463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511534462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccdf3cd744ad481418c21cfcf069c9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: ISS
+  metadata: OSCAR-QUBE was here
+  sizeMultiplier: 0.0108
+--- !u!114 &511534464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511534462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ef3224407978148b3b8f55b6660015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbitCenter: {fileID: 399826765}
+  orbitRadius: 1.408
+  orbitSpeed: 30
+  inclination: 51.6
+--- !u!65 &511534465
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511534462}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.42, y: 4.8, z: -18.5}
+  m_Center: {x: 6.5, y: 0, z: 3.7}
 --- !u!1 &514706908 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1066320961419670, guid: ec1861462fc1b46f1a1c1c3c0f1f7f15, type: 3}
@@ -676,6 +816,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   selectionDistance: 100
+  rayVisualizer: {fileID: 0}
 --- !u!1 &1004462001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1408581670749804, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
@@ -712,8 +853,58 @@ Transform:
   m_Children:
   - {fileID: 2114571547}
   - {fileID: 399826765}
+  - {fileID: 511534461}
   - {fileID: 270880611}
   - {fileID: 2079098587}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1656452420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656452422}
+  - component: {fileID: 1656452421}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1656452421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656452420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a0863332a49454288efa49d3106e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  celestialObjects:
+  - {fileID: 514706908}
+  - {fileID: 859881780}
+  - {fileID: 1004462001}
+  - {fileID: 511534462}
+--- !u!4 &1656452422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656452420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.545504, y: 1.5926741, z: 2.2850142}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2079098586
@@ -807,7 +998,7 @@ MonoBehaviour:
   orbitCenter: {fileID: 399826765}
   orbitRadius: 10
   orbitSpeed: 10
-  inclination: 50
+  inclination: 23.4
 --- !u!114 &2079098591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,6 +1118,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1656452422}
   - {fileID: 963194228}
   - {fileID: 517857082}
   - {fileID: 876545312}
