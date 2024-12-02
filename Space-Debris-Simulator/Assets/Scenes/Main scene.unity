@@ -848,7 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   selectionDistance: 100
   rayVisualizer: {fileID: 0}
 --- !u!1 &1656452420
