@@ -25,6 +25,7 @@ public class VRObjectSelector : MonoBehaviour
     }
     private void Update()
     {
+        laserPointer();
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             SelectWithRaycast();
@@ -50,6 +51,28 @@ public class VRObjectSelector : MonoBehaviour
         }
         else
         {
+            rayVisualizer.SetPosition(0, rayOrigin);
+            rayVisualizer.SetPosition(1, rayOrigin + rayDirection * selectionDistance);
+        }
+    }
+
+    private void laserPointer()
+    {
+        GameObject rightController = GameObject.Find("RightController");
+        GameObject controllerPosition = rightController.transform.Find("OVRControllerVisual").gameObject;
+        Vector3 rayOrigin = controllerPosition.transform.position;
+        Vector3 rayDirection = controllerPosition.transform.forward;
+
+        // Perform raycast
+        if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, selectionDistance))
+        {
+            // Set the laser to hit the object
+            rayVisualizer.SetPosition(0, rayOrigin);
+            rayVisualizer.SetPosition(1, hit.point);
+        }
+        else
+        {
+            // Set the laser to its maximum distance
             rayVisualizer.SetPosition(0, rayOrigin);
             rayVisualizer.SetPosition(1, rayOrigin + rayDirection * selectionDistance);
         }
