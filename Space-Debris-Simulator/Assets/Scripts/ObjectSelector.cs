@@ -10,7 +10,7 @@ public class VRObjectSelector : MonoBehaviour
 
     private void Start()
     {
-        vrCamera = gameObject.GetComponent<Camera>();
+        vrCamera = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
 
         if (rayVisualizer == null)
         {
@@ -25,7 +25,8 @@ public class VRObjectSelector : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        laserPointer();
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             SelectWithRaycast();
         }
@@ -33,21 +34,47 @@ public class VRObjectSelector : MonoBehaviour
 
     private void SelectWithRaycast()
     {
-        Ray ray = vrCamera.ScreenPointToRay(Input.mousePosition);
+        Debug.LogError("pressed");
+        GameObject rightController = GameObject.Find("RightController");
+        GameObject controllerPosition = rightController.transform.Find("OVRControllerVisual").gameObject;
+        Vector3 rayOrigin = controllerPosition.transform.position; // Controller position
+        Vector3 rayDirection = controllerPosition.transform.forward;
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, selectionDistance, interactableLayer))
+        if (Physics.Raycast(rayOrigin, rayDirection, out hit, selectionDistance, interactableLayer))
         {
 
             var celestialObject = hit.collider.gameObject.GetComponent<CelestialObject>();
             Debug.Log($"Selected: {celestialObject.name}, {celestialObject.metadata}");
-            rayVisualizer.SetPosition(0, ray.origin);
+            rayVisualizer.SetPosition(0, rayOrigin);
             rayVisualizer.SetPosition(1, hit.point);
         }
         else
         {
-            rayVisualizer.SetPosition(0, ray.origin);
-            rayVisualizer.SetPosition(1, ray.origin + ray.direction * selectionDistance);
+            rayVisualizer.SetPosition(0, rayOrigin);
+            rayVisualizer.SetPosition(1, rayOrigin + rayDirection * selectionDistance);
+        }
+    }
+
+    private void laserPointer()
+    {
+        GameObject rightController = GameObject.Find("RightController");
+        GameObject controllerPosition = rightController.transform.Find("OVRControllerVisual").gameObject;
+        Vector3 rayOrigin = controllerPosition.transform.position;
+        Vector3 rayDirection = controllerPosition.transform.forward;
+
+        // Perform raycast
+        if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, selectionDistance))
+        {
+            // Set the laser to hit the object
+            rayVisualizer.SetPosition(0, rayOrigin);
+            rayVisualizer.SetPosition(1, hit.point);
+        }
+        else
+        {
+            // Set the laser to its maximum distance
+            rayVisualizer.SetPosition(0, rayOrigin);
+            rayVisualizer.SetPosition(1, rayOrigin + rayDirection * selectionDistance);
         }
     }
 }
