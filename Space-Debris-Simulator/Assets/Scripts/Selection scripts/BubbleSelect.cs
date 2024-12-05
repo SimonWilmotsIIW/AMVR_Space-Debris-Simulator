@@ -21,7 +21,7 @@ public class BubbleSelect : MonoBehaviour
         lineRenderer.startColor = Color.red;
         lineRenderer.endColor = Color.red;
         lineRenderer.positionCount = 2;
-        lineRenderer.enabled = false;
+        lineRenderer.enabled = true;
     }
 
     private void Update()
@@ -78,11 +78,19 @@ public class BubbleSelect : MonoBehaviour
     }
 
     private void OnDrawGizmos()
+{
+    if (player != null)
     {
-        if (player != null)
+        Gizmos.color = new Color(1, 0, 0, 0.3f);
+        Gizmos.DrawSphere(player.position, selectionRadius);
+
+        // If there's a current selection, mark it
+        if (currentSelection != null)
         {
-            Gizmos.color = new Color(1, 0, 0, 0.5f);
-            Gizmos.DrawSphere(player.position, selectionRadius);
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(player.position, (currentSelection as MonoBehaviour).transform.position);
+            Gizmos.DrawWireSphere((currentSelection as MonoBehaviour).transform.position, 0.5f);
         }
     }
+}
 }
