@@ -6,11 +6,20 @@ public class VRObjectSelector : MonoBehaviour
     public LayerMask interactableLayer;
     public float selectionDistance = 100f;
 
-    public LineRenderer rayVisualizer; 
+    public LineRenderer rayVisualizer;
+    private Shader newShader;
 
     private void Start()
     {
         vrCamera = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
+
+        newShader = Shader.Find("Mobile/Unlit");
+
+        if (rayVisualizer != null && newShader != null)
+        {
+            Material newMaterial = new Material(newShader);
+            rayVisualizer.material = newMaterial;
+        }
 
         if (rayVisualizer == null)
         {
@@ -18,9 +27,8 @@ public class VRObjectSelector : MonoBehaviour
             rayVisualizer.startWidth = 0.05f;
             rayVisualizer.endWidth = 0.05f;
             rayVisualizer.positionCount = 2;
-            rayVisualizer.material = new Material(Shader.Find("Sprites/Default"));
-            rayVisualizer.startColor = Color.cyan;
-            rayVisualizer.endColor = Color.cyan;
+            rayVisualizer.material = new Material(newShader);
+            rayVisualizer.material.color = Color.cyan;
         }
     }
     private void Update()
@@ -39,6 +47,7 @@ public class VRObjectSelector : MonoBehaviour
         GameObject controllerPosition = rightController.transform.Find("OVRControllerVisual").gameObject;
         Vector3 rayOrigin = controllerPosition.transform.position; // Controller position
         Vector3 rayDirection = controllerPosition.transform.forward;
+        rayVisualizer.material.color = Color.red;
         RaycastHit hit;
 
         if (Physics.Raycast(rayOrigin, rayDirection, out hit, selectionDistance, interactableLayer))
