@@ -571,7 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: ISS
   metadata: OSCAR-QUBE was here
-  sizeMultiplier: 0.0108
+  sizeMultiplier: 0.000108
   objectRenderer: {fileID: 0}
 --- !u!114 &511534464
 MonoBehaviour:
