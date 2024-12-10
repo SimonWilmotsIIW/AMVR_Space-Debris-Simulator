@@ -33,7 +33,7 @@ public class VRObjectSelector : MonoBehaviour
     }
     private void Update()
     {
-        laserPointer();
+        //laserPointer();
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             SelectWithRaycast();
