@@ -70,6 +70,11 @@ public class Orbit : MonoBehaviour
     {
         int segments = 500;
         float angleStep = 360f / segments;
+        float objectSize = (transform.localScale.x + transform.localScale.y + transform.localScale.z) / 3f;
+        float sizeFactor = objectSize * 0.3f;
+        sizeFactor = Mathf.Clamp(sizeFactor, 0.05f, 1f);
+        orbitVisualizer.startWidth = sizeFactor;
+        orbitVisualizer.endWidth = sizeFactor;
         
         orbitVisualizer.positionCount = segments + 1;
 
