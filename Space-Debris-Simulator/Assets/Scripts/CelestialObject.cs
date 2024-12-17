@@ -43,11 +43,19 @@ public class CelestialObject : MonoBehaviour, ISelectable
         outline.OutlineColor = Color.magenta;
         GetComponent<Outline>().enabled = true;
         Debug.Log($"Selected: {objectName}");
+
+        if (this == GameController.Instance.GetTargetObject()) {
+            GameController.Instance.StopTimer();
+        }
     }
 
     public void OnDeselect()
     {
         GetComponent<Outline>().enabled = false;
         Debug.Log($"Deselected: {objectName}");
+    }
+
+    public string GetName() {
+        return objectName;
     }
 }
