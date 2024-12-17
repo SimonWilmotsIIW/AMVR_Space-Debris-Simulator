@@ -19,6 +19,7 @@ public class SelectionOfObject : MonoBehaviour
     public void SelectWithRaycast()
     {
         CelestialObject celestialObject = gameObject.GetComponent<CelestialObject>();
+        celestialObject.OnSelect();
         Debug.Log($"Selected: {celestialObject.name}, {celestialObject.metadata}");
     }
 }

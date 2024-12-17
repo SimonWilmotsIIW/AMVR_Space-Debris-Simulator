@@ -69,9 +69,9 @@ Mesh:
       format: 0
       dimension: 0
     - stream: 0
-      offset: 0
+      offset: 48
       format: 0
-      dimension: 0
+      dimension: 3
     - stream: 0
       offset: 0
       format: 0
@@ -96,8 +96,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 384
-    _typelessdata: 0ca3fa3e03fc2abfed92cabfcd3d26ba3969203ee2d67cbffdff7f3fa3c53032ad5128ba000080bf00a05f3a2057823e93d1813f57f70abfee13c8bfcd3d26ba3969203ee2d67cbffdff7f3fdaa128b3345228ba000080bf18c87f3fa8454b3fac8afa3eef2c0bbf240dc8bfa72e26bafa68203ee4d67cbffdff7f3f35e978b2994228ba000080bf00ee023a7e5e4a3fabd7813f6bc62abfb999cabff24c26ba7769203eded67cbffdff7f3fdfcb78b2496128ba000080bf43df7f3f7425843e57f4813f7f7030bf423487bfbd0ea739cce84d3d22ad7f3fffff7fbf73fc7cb2fb44a739000080bf00f0023aecb7823e08fcfa3ef17a10bfadfc87bfbd0ea739cce84d3d22ad7f3fffff7fbfaa791b33a344a739000080bf42df7f3fb41f423feaed813f0c4610bf7e0388bfa4ffa6394de84d3d23ad7f3fffff7fbf884d06b3f935a739000080bf0098643ad0f4423fa815fb3e64a530bf702d87bfd71da7394ce94d3d23ad7f3fffff7fbf8a876233a553a739000080bfdcc67f3fae0d813e
+    m_DataSize: 480
+    _typelessdata: 0ca3fa3e03fc2abfed92cabfcd3d26ba3969203ee2d67cbffdff7f3fa3c53032ad5128ba000080bf00a05f3a2057823ecd3d26ba3969203ee2d67cbf93d1813f57f70abfee13c8bfcd3d26ba3969203ee2d67cbffdff7f3fdaa128b3345228ba000080bf18c87f3fa8454b3fcd3d26ba3969203ee2d67cbfac8afa3eef2c0bbf240dc8bfa72e26bafa68203ee4d67cbffdff7f3f35e978b2994228ba000080bf00ee023a7e5e4a3fa72e26bafa68203ee4d67cbfabd7813f6bc62abfb999cabff24c26ba7769203eded67cbffdff7f3fdfcb78b2496128ba000080bf43df7f3f7425843ef24c26ba7769203eded67cbf57f4813f7f7030bf423487bfbd0ea739cce84d3d22ad7f3fffff7fbf73fc7cb2fb44a739000080bf00f0023aecb7823ebd0ea739cce84d3d22ad7f3f08fcfa3ef17a10bfadfc87bfbd0ea739cce84d3d22ad7f3fffff7fbfaa791b33a344a739000080bf42df7f3fb41f423fbd0ea739cce84d3d22ad7f3feaed813f0c4610bf7e0388bfa4ffa6394de84d3d23ad7f3fffff7fbf884d06b3f935a739000080bf0098643ad0f4423fa4ffa6394de84d3d23ad7f3fa815fb3e64a530bf702d87bfd71da7394ce94d3d23ad7f3fffff7fbf8a876233a553a739000080bfdcc67f3fae0d813ed71da7394ce94d3d23ad7f3f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0

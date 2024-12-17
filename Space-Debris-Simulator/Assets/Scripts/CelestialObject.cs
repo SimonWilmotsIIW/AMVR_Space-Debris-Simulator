@@ -11,11 +11,13 @@ public class CelestialObject : MonoBehaviour, ISelectable
 
     public Renderer objectRenderer;
     private Color originalColor;
+    private Outline outline;
 
     private void Start()
     {
         transform.localScale = Vector3.one * sizeMultiplier;
         if (objectRenderer == null) objectRenderer = GetComponent<Renderer>();
+        outline = GetComponent<Outline>();
         originalColor = objectRenderer.material.color;
     }
 
@@ -24,15 +26,28 @@ public class CelestialObject : MonoBehaviour, ISelectable
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.Self);
     }
 
+    public void OnHover() {
+        
+        outline.OutlineColor = Color.cyan;
+        outline.enabled = true;
+        Debug.Log($"Hover: {objectName}");
+    }
+    public void OnUnhover() {
+        
+        outline.enabled = false;
+        outline.OutlineColor = Color.magenta;
+    }
+
     public void OnSelect()
     {
-        objectRenderer.material.color = Color.red;
+        outline.OutlineColor = Color.magenta;
+        GetComponent<Outline>().enabled = true;
         Debug.Log($"Selected: {objectName}");
     }
 
     public void OnDeselect()
     {
-        objectRenderer.material.color = originalColor;
+        GetComponent<Outline>().enabled = false;
         Debug.Log($"Deselected: {objectName}");
     }
 }
