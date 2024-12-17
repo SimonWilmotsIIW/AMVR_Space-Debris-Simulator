@@ -1013,6 +1013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRCameraRigInteraction
       objectReference: {fileID: 0}
+    - target: {fileID: 6240925540845266547, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6962110786773749519, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.314
@@ -1024,6 +1028,14 @@ PrefabInstance:
     - target: {fileID: 6962110786773749519, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492845263922173750, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492845265316555339, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7908692353090562265, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: _maxRayVisualLength
@@ -2767,6 +2779,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1109940793}
     m_Modifications:
+    - target: {fileID: 1741424151739577163, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 95.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741424151739577163, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00002873
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741424151739577163, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40
+      objectReference: {fileID: 0}
     - target: {fileID: 2194884700669601784, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
       propertyPath: m_Name
       value: ObjectInfoPanel
@@ -2805,7 +2829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623998431676918629, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -702.3
+      value: -883.6
       objectReference: {fileID: 0}
     - target: {fileID: 4623998431676918629, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2841,7 +2865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623998431676918629, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 63
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 4623998431676918629, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2854,6 +2878,14 @@ PrefabInstance:
     - target: {fileID: 4623998431676918629, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203079987379439995, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000043094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203079987379439995, guid: c502f3a3354d3b94aa7e36c59852675d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3872,6 +3904,7 @@ GameObject:
   - component: {fileID: 1807592736}
   - component: {fileID: 1807592735}
   - component: {fileID: 1807592737}
+  - component: {fileID: 1807592738}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3886,7 +3919,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807592734}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b80db93417960b547ba78d0f1134fbf3, type: 3}
   m_Name: 
@@ -3950,6 +3983,19 @@ MonoBehaviour:
   selectableLayer:
     serializedVersion: 2
     m_Bits: 1
+--- !u!114 &1807592738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807592734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28cd583fbb42ae54d986beda18410996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1822918269
 GameObject:
   m_ObjectHideFlags: 0
