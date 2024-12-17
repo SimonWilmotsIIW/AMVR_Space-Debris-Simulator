@@ -7,6 +7,7 @@ public class CelestialObject : MonoBehaviour, ISelectable
     public string objectName;
     public string metadata;
     public float sizeMultiplier = 1.0f;
+    public float rotationSpeed = 1.0f;
 
     public Renderer objectRenderer;
     private Color originalColor;
@@ -16,6 +17,11 @@ public class CelestialObject : MonoBehaviour, ISelectable
         transform.localScale = Vector3.one * sizeMultiplier;
         if (objectRenderer == null) objectRenderer = GetComponent<Renderer>();
         originalColor = objectRenderer.material.color;
+    }
+
+    public void Update() 
+    {
+        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.Self);
     }
 
     public void OnSelect()

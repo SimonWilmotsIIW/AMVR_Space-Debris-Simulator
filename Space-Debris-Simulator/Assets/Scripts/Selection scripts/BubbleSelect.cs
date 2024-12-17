@@ -9,25 +9,28 @@ public class BubbleSelect : MonoBehaviour
     public LayerMask selectableLayer;
 
     private ISelectable currentSelection;
-    private LineRenderer lineRenderer;
+    private GameObject sphere;
 
     private void Start()
     {
         player = transform;
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer.startWidth = 0.05f;
-        lineRenderer.endWidth = 0.05f;
-        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.red;
-        lineRenderer.endColor = Color.red;
-        lineRenderer.positionCount = 2;
-        lineRenderer.enabled = true;
+
+        // Create a sphere in the scene
+        sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = player.position; // Initial position at the player's position
+        sphere.transform.localScale = Vector3.one * selectionRadius * 2f; // Scale to match selection radius
+        sphere.GetComponent<Collider>().enabled = false; // Disable collider if not needed for interaction
+
+        // Optional: Assign a material to the sphere for visibility
+        Renderer sphereRenderer = sphere.GetComponent<Renderer>();
+        sphereRenderer.material = new Material(Shader.Find("Standard"));
+        sphereRenderer.material.color = new Color(1f, 0f, 0f, 0.3f); // Red with some transparency
     }
 
     private void Update()
     {
         HandleProximitySelection();
-        UpdateVisualization();
+        UpdateSphereProperties();
     }
 
     private void HandleProximitySelection()
@@ -63,34 +66,21 @@ public class BubbleSelect : MonoBehaviour
         }
     }
 
-    private void UpdateVisualization()
+    private void UpdateSphereProperties()
     {
-        if (currentSelection != null)
-        {
-            lineRenderer.enabled = true;
-            lineRenderer.SetPosition(0, player.position);
-            lineRenderer.SetPosition(1, (currentSelection as MonoBehaviour).transform.position);
-        }
-        else
-        {
-            lineRenderer.enabled = false;
-        }
+        // Update sphere's position to follow the player
+        sphere.transform.position = player.position;
+
+        // Update sphere's scale to reflect the selection radius
+        sphere.transform.localScale = Vector3.one * selectionRadius * 2f;
     }
 
-    private void OnDrawGizmos()
-{
-    if (player != null)
+    private void OnDestroy()
     {
-        Gizmos.color = new Color(1, 0, 0, 0.3f);
-        Gizmos.DrawSphere(player.position, selectionRadius);
-
-        // If there's a current selection, mark it
-        if (currentSelection != null)
+        // Cleanup: Destroy the sphere when this script is destroyed
+        if (sphere != null)
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(player.position, (currentSelection as MonoBehaviour).transform.position);
-            Gizmos.DrawWireSphere((currentSelection as MonoBehaviour).transform.position, 0.5f);
+            Destroy(sphere);
         }
     }
-}
 }

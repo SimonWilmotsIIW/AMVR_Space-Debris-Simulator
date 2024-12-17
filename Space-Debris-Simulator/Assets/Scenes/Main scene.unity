@@ -945,6 +945,7 @@ MonoBehaviour:
   objectName: ISS
   metadata: OSCAR-QUBE was here
   sizeMultiplier: 0.000108
+  rotationSpeed: 0
   objectRenderer: {fileID: 0}
 --- !u!114 &511534464
 MonoBehaviour:
@@ -961,7 +962,7 @@ MonoBehaviour:
   orbitCenter: {fileID: 399826765}
   orbitRadius: 1.408
   orbitSpeed: 30
-  inclination: 51.6
+  inclination: -51.6
 --- !u!65 &511534465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1558,6 +1559,7 @@ MonoBehaviour:
   objectName: Earth
   metadata: Onze thuis
   sizeMultiplier: 1
+  rotationSpeed: 3
   objectRenderer: {fileID: 0}
 --- !u!23 &859881786
 MeshRenderer:
@@ -3107,6 +3109,7 @@ MonoBehaviour:
   objectName: Moon
   metadata: Maan is kleinere bol kaas
   sizeMultiplier: 0.3475
+  rotationSpeed: -3
   objectRenderer: {fileID: 0}
 --- !u!23 &2079098594
 MeshRenderer:
@@ -3362,6 +3365,7 @@ MonoBehaviour:
   objectName: Sun
   metadata: Zon lijkt op grote kaasbol
   sizeMultiplier: 109
+  rotationSpeed: 0
   objectRenderer: {fileID: 0}
 --- !u!135 &2114571553 stripped
 SphereCollider:

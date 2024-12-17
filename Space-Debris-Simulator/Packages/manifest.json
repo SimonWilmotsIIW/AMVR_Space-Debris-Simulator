@@ -2,6 +2,7 @@
   "dependencies": {
     "com.meta.xr.sdk.all": "71.0.0",
     "com.unity.collab-proxy": "2.6.0",
+    "com.unity.device-simulator.devices": "1.0.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.inputsystem": "1.11.2",
     "com.unity.render-pipelines.universal": "14.0.11",
