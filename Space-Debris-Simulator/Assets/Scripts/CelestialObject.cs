@@ -18,6 +18,10 @@ public class CelestialObject : MonoBehaviour, ISelectable
         transform.localScale = Vector3.one * sizeMultiplier;
         if (objectRenderer == null) objectRenderer = GetComponent<Renderer>();
         outline = GetComponent<Outline>();
+        if (outline == null)
+        {
+            outline = GetComponentInChildren<Outline>();
+        }
         originalColor = objectRenderer.material.color;
     }
 
@@ -41,7 +45,7 @@ public class CelestialObject : MonoBehaviour, ISelectable
     public void OnSelect()
     {
         outline.OutlineColor = Color.magenta;
-        GetComponent<Outline>().enabled = true;
+        outline.enabled = true;
         Debug.Log($"Selected: {objectName}");
 
         if (this == GameController.Instance.GetTargetObject()) {
@@ -51,7 +55,7 @@ public class CelestialObject : MonoBehaviour, ISelectable
 
     public void OnDeselect()
     {
-        GetComponent<Outline>().enabled = false;
+        outline.enabled = false;
         Debug.Log($"Deselected: {objectName}");
     }
 
