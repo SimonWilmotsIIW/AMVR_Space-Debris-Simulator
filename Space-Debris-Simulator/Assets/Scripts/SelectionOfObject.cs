@@ -6,10 +6,13 @@ using TMPro;
 public class SelectionOfObject : MonoBehaviour
 {
     public GameObject ObjectTextPanel;
+    public GameObject GameControllerObject;
+
+    private GameController gameController;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameControllerObject.GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -20,8 +23,11 @@ public class SelectionOfObject : MonoBehaviour
 
     public void SelectWithRaycast()
     {
+
         CelestialObject celestialObject = gameObject.GetComponent<CelestialObject>();
         celestialObject.OnSelect();
+
+        gameController.AmountOfClicksCorrection();
 
         ObjectTextPanel.SetActive(true);
         GameObject nameObject = ObjectTextPanel.transform.Find("ObjectName").gameObject;
