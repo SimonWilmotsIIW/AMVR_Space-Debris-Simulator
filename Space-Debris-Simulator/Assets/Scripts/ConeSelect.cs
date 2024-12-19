@@ -129,11 +129,22 @@ public class ConeSelect : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter");
+        GameObject enemy = other.gameObject;
+        if(other.CompareTag("Enemy")){
+            Debug.Log("Enter");
+            enemy.GetComponent<CelestialObject>().OnHover();
+            highlightedObjects.Add(enemy);
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
+        GameObject enemy = other.gameObject;
+        if(other.CompareTag("Enemy")){
+            Debug.Log("Exit");
+            highlightedObjects.Remove(enemy);
+            enemy.GetComponent<CelestialObject>().OnUnhover();
+
+        }
     }
 }
