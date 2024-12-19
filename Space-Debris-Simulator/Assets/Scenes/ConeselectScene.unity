@@ -774,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010006375848, guid: 7f4da31f4e02df649a68847e35b2bb90, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000010006375848, guid: 7f4da31f4e02df649a68847e35b2bb90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -850,10 +850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544e52e7528d39543a55e8259cace9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_angle: 10
-  m_distance: 3
+  m_angle: 30
+  m_distance: 1
   m_isTrigger: 1
-  m_isFixScale: 1
+  m_isFixScale: 0
 --- !u!1 &1135974425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cone: {fileID: 827289631}
   target: {fileID: 0}
-  coneCollider: {fileID: 0}
 --- !u!1001 &1621124538
 PrefabInstance:
   m_ObjectHideFlags: 0

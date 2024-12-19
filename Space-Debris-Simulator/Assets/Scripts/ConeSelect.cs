@@ -24,12 +24,7 @@ public class ConeSelect : MonoBehaviour
     {
         // currentConeScale = cone.transform.localScale;
         float newDistance =  cone.GetComponent<ConeCollider>().GetDistance();
-
-        
-        Debug.LogError(newDistance);
         cone.transform.localScale = new Vector3(newDistance/3,newDistance/3, newDistance);
-        Debug.LogError(cone.transform.localScale);
-
         currentConeScale = cone.transform.localScale;
         if (Input.GetMouseButton(0))
         {
@@ -60,6 +55,7 @@ public class ConeSelect : MonoBehaviour
             if (collider.CompareTag("Enemy"))
             {
                 GameObject enemy = collider.gameObject;
+                enemy.GetComponent<CelestialObject>().OnSelect();
                 Debug.Log($"Cloning enemy: {enemy.name}");
 
                 GameObject clonedEnemy = Instantiate(enemy);
