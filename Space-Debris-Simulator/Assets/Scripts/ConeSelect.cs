@@ -58,7 +58,7 @@ public class ConeSelect : MonoBehaviour
         foreach (var item in selectedObjects)
         {
             fixScaling(item);
-            item.transform.localPosition = new Vector3(i * 0.3f, .1f,0f);
+            item.transform.localPosition = new Vector3(i * 0.3f, 1f,0f);
             i++;
         }
         //DetectAndHighlightObjects();
