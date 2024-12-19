@@ -30,19 +30,20 @@ public class ConeSelect : MonoBehaviour
         float newDistance =  cone.GetComponent<ConeCollider>().GetDistance();
         cone.transform.localScale = new Vector3(newDistance/3,newDistance/3, newDistance);
         currentConeScale = cone.transform.localScale;
-        if (Input.GetMouseButton(0)){
+        if (Input.GetMouseButton(0) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickUp))
+        {
             newDistance += Time.deltaTime * coneGrowthRate * upSpeed/10;
             cone.GetComponent<ConeCollider>().SetDistance(newDistance);
             cone.transform.localScale = currentConeScale;
             upSpeed+=1;
         }
-        else if (Input.GetMouseButton(1)) {
+        else if ((Input.GetMouseButton(1) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown)) && newDistance>=0.5f) {
             newDistance -= Time.deltaTime * coneGrowthRate * downSpeed/10;
             cone.GetComponent<ConeCollider>().SetDistance(newDistance);
             cone.transform.localScale = currentConeScale;
             downSpeed+=1;
         }
-        else if (Input.GetMouseButtonDown(2))
+        else if (Input.GetMouseButtonDown(2) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             focusSelectedObjects();
         }
