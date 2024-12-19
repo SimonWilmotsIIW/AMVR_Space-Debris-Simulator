@@ -66,7 +66,7 @@ public class ConeSelect : MonoBehaviour
 
     private void focusSelectedObjects(){
         foreach(var selected in selectedObjects){
-            selected.GetComponent<CelestialObject>().OnDeselect();
+            //selected.GetComponent<CelestialObject>().OnDeselect();
             selected.GetComponent<CelestialObject>().linkedObject.DestroyLinkedObject();
             Destroy(selected);
         }
@@ -84,7 +84,7 @@ public class ConeSelect : MonoBehaviour
             outline.enabled = false;
             AddInteractionLink(selected, clone);
             selectedObjects.Add(clone);
-            selected.GetComponent<CelestialObject>().OnSelect(); 
+            //selected.GetComponent<CelestialObject>().OnSelect(); 
         }
        // Debug.LogError(selectedObjects.Count);
     }
