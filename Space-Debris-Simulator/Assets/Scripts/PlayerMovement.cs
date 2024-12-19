@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         vrCamera = transform;
-        transform.position = new Vector3(0f, 0f, 0f);
+        transform.position = new Vector3(0f, 0f, -5f);
     }
     private void Update()
     {

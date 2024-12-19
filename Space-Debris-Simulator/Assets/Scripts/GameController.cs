@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour
 
     private float elapsedTime = 0f;
     private bool isTimerRunning = false;
+    private int amountOfClicksWithoutObjectHit = 0;
+
+    public GameObject ClicksPanel;
 
     private void Awake()
     {
@@ -37,16 +40,18 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
         {
             ToggleOrbitVisibility();
         } else if (Input.GetKeyDown(KeyCode.Space) && enableTimer) {
             if (isTimerRunning) {
+                amountOfClicksWithoutObjectHit++;
                 StopTimer();
             } else {
                 StartTimer();
                 ResetPlayerPosition();
                 SelectRandomCelestialObject();
+                amountOfClicksWithoutObjectHit = 0;
             }
         }
 
@@ -55,6 +60,16 @@ public class GameController : MonoBehaviour
             elapsedTime += Time.deltaTime;
             UpdateTimerText();
         }
+
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+        {
+            amountOfClicksWithoutObjectHit++;
+        }
+    }
+
+    public void AmountOfClicksCorrection()
+    {
+        amountOfClicksWithoutObjectHit -= 1;
     }
 
     private void ToggleOrbitVisibility()
@@ -83,11 +98,21 @@ public class GameController : MonoBehaviour
     {
         elapsedTime = 0f;
         isTimerRunning = true;
+
+        GameObject clickObject = ClicksPanel.transform.Find("Clicks").gameObject;
+        TMP_Text clicksText = clickObject.GetComponent<TMP_Text>();
+        clicksText.text = "Amount of  clicks visible after test";
     }
 
     public void StopTimer()
     {
         isTimerRunning = false;
+        Debug.LogError(amountOfClicksWithoutObjectHit);
+
+        GameObject clickObject = ClicksPanel.transform.Find("Clicks").gameObject;
+        TMP_Text clicksText = clickObject.GetComponent<TMP_Text>();
+        clicksText.text = "Amount of  clicks: " + amountOfClicksWithoutObjectHit;
+
         Debug.Log($"Timer Stopped! Final Time: {elapsedTime:F2} seconds");
     }
     private void UpdateTimerText()
@@ -105,7 +130,7 @@ public class GameController : MonoBehaviour
     }
 
     private void ResetPlayerPosition() {
-        player.transform.position = new Vector3(0f, 0f, 0f);
+        player.transform.position = new Vector3(0f, 0f, -5f);
         player.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
     }
