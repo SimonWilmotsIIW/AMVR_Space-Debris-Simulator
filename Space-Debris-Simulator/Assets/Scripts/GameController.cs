@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class GameController : MonoBehaviour
 {
@@ -35,7 +36,18 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        celestialObjects = FindObjectsOfType<CelestialObject>();
+        var allObjects = FindObjectsOfType<CelestialObject>();
+        var filteredList = new List<CelestialObject>();
+
+        foreach (var obj in allObjects)
+        {
+            if (!obj.name.ToLower().Contains("asteroid") && !obj.name.ToLower().Contains("sun"))
+            {
+                filteredList.Add(obj);
+            }
+        }
+
+        celestialObjects = filteredList.ToArray();
     }
 
     void Update()
@@ -43,7 +55,7 @@ public class GameController : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick) || Input.GetKeyDown(KeyCode.O))
         {
             ToggleOrbitVisibility();
-        } else if (Input.GetKeyDown(KeyCode.Space) && enableTimer) {
+        } else if ((OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown(KeyCode.Space)) && enableTimer) {
             if (isTimerRunning) {
                 amountOfClicksWithoutObjectHit++;
                 StopTimer();
