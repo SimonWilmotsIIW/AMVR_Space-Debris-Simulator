@@ -6,29 +6,41 @@ public class ConeSelect : MonoBehaviour
 {
     public GameObject cone;
     public GameObject target;
-    public Collider coneCollider;
+    //public Collider coneCollider;
     private Vector3 mousePosition;
 
-    private Vector3 startConeScale;
-    private Vector3 startConePosition;
     private Vector3 currentConeScale;
     private float coneGrowthRate = 3f;
+    Transform newTransform;
     void Start()
     {
-        startConePosition = cone.transform.position;
-        startConeScale = cone.transform.localScale;
+        //float newDistance =  cone.GetComponent<ConeCollider>().GetDistance();
+        //newTransform = new Vector3(newDistance/3,newDistance/3, newDistance);
+        //newTransform = new GameObject().transform;
+
     }
 
     void Update()
     {
+        // currentConeScale = cone.transform.localScale;
+        float newDistance =  cone.GetComponent<ConeCollider>().GetDistance();
+
+        
+        Debug.LogError(newDistance);
+        cone.transform.localScale = new Vector3(newDistance/3,newDistance/3, newDistance);
+        Debug.LogError(cone.transform.localScale);
+
         currentConeScale = cone.transform.localScale;
         if (Input.GetMouseButton(0))
         {
-            currentConeScale.z += Time.deltaTime * coneGrowthRate;
+            newDistance += Time.deltaTime * coneGrowthRate;
+            cone.GetComponent<ConeCollider>().SetDistance(newDistance);
             cone.transform.localScale = currentConeScale;
         } else if (Input.GetMouseButton(1)) {
-            currentConeScale.z -= Time.deltaTime * coneGrowthRate;
+            newDistance -= Time.deltaTime * coneGrowthRate;
+            cone.GetComponent<ConeCollider>().SetDistance(newDistance);
             cone.transform.localScale = currentConeScale;
+            
         }
         else if (Input.GetMouseButtonDown(2))
         {

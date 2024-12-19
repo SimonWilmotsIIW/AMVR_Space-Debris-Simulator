@@ -104,6 +104,14 @@ public class ConeCollider : MonoBehaviour {
         obj.name = name;
         return obj;
     }
+
+    public float GetDistance() {
+        return m_distance;
+    }
+
+    public void SetDistance(float distance) {
+        m_distance = distance;
+    }
 }
 
 
