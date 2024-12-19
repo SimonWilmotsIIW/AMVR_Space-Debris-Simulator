@@ -62,7 +62,7 @@ public class ConeSelect : MonoBehaviour
             selectedObjects.Add(selected);
             selected.GetComponent<CelestialObject>().OnSelect();
         }
-        Debug.LogError(selectedObjects.Count);
+       // Debug.LogError(selectedObjects.Count);
     }
 
     void OnTriggerEnter(Collider other)

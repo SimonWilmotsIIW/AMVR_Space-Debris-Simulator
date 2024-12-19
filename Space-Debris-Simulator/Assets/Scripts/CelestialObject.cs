@@ -90,7 +90,7 @@ public class CelestialObject : MonoBehaviour, ISelectable
     }
     public void OnDeselectEffect()
     {
-        GetComponent<Outline>().enabled = false;
+        outline.enabled = false;
     }
     public string GetName() {
         return objectName;
