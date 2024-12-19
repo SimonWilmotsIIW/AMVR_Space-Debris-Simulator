@@ -23,13 +23,13 @@ public class EnemyFind : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.LogError("enter");
+        //Debug.LogError("enter");
         //exclamation.enabled = true;
     }
 
     void OnTriggerExit(Collider other)
     {
-        Debug.LogError("exit");
+        //Debug.LogError("exit");
         //exclamation.enabled = false;
     }
 }
