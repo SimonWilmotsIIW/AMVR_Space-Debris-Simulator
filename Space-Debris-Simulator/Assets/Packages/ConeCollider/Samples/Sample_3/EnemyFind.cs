@@ -8,7 +8,7 @@ public class EnemyFind : MonoBehaviour {
 
     void Awake()
     {
-        exclamation = this.transform.Find("ExCanvas/ExclamationText").GetComponent<Text>();
+        //exclamation = this.transform.Find("ExCanvas/ExclamationText").GetComponent<Text>();
     }
 
     // Use this for initialization
@@ -23,11 +23,13 @@ public class EnemyFind : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        exclamation.enabled = true;
+        //Debug.LogError("enter");
+        //exclamation.enabled = true;
     }
 
     void OnTriggerExit(Collider other)
     {
-        exclamation.enabled = false;
+        //Debug.LogError("exit");
+        //exclamation.enabled = false;
     }
 }

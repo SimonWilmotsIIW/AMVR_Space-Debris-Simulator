@@ -56,16 +56,13 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(moveDirection * currentSpeed * Time.deltaTime, Space.Self);
 
-        if (Input.GetMouseButton(1))
-        {
-            float mouseX = Input.GetAxis("Mouse X") * lookSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * lookSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * lookSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * lookSensitivity * Time.deltaTime;
 
-            yaw += mouseX;
-            pitch -= mouseY;
-            pitch = Mathf.Clamp(pitch, -90f, 90f); //over-rotation
+        yaw += mouseX;
+        pitch -= mouseY;
+        pitch = Mathf.Clamp(pitch, -90f, 90f); //over-rotation
 
-            vrCamera.transform.localRotation = Quaternion.Euler(pitch, yaw, 0f);
-        }
+        vrCamera.transform.localRotation = Quaternion.Euler(pitch, yaw, 0f);
     }
 }
