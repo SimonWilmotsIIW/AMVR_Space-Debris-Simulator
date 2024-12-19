@@ -15,12 +15,15 @@ public class CelestialObject : MonoBehaviour, ISelectable
     private Color originalColor;
     private Outline outline;
 
+    private bool isSelected;
+
     private void Start()
     {
         transform.localScale = Vector3.one * sizeMultiplier;
         if (objectRenderer == null) objectRenderer = GetComponent<Renderer>();
         outline = GetComponent<Outline>();
         originalColor = objectRenderer.material.color;
+        isSelected=false;
     }
 
     public void Update() 
@@ -29,8 +32,10 @@ public class CelestialObject : MonoBehaviour, ISelectable
     }
 
     public void OnHover() {
-        OnHoverEffect();
-        linkedObject?.OnHoverEffect();
+        if(!isSelected){
+            OnHoverEffect();
+            linkedObject?.OnHoverEffect();
+        }
     }
     public void OnHoverEffect()
     {
@@ -39,9 +44,10 @@ public class CelestialObject : MonoBehaviour, ISelectable
         Debug.Log($"Hover: {objectName}");
     }
     public void OnUnhover() {
-
-        OnUnhoverEffect();
-        linkedObject?.OnUnhoverEffect();
+        if(!isSelected){
+            OnUnhoverEffect();
+            linkedObject?.OnUnhoverEffect();
+        }
     }
     public void OnUnhoverEffect()
     {
@@ -51,6 +57,9 @@ public class CelestialObject : MonoBehaviour, ISelectable
 
     public void OnSelect()
     {
+        if(!isSelected){
+            isSelected=true;
+        }
         OnSelectEffect();
         linkedObject?.OnSelectEffect();
     }
@@ -61,14 +70,17 @@ public class CelestialObject : MonoBehaviour, ISelectable
         Debug.Log($"Selected: {objectName}");
 
 
-        if (this == GameController.Instance.GetTargetObject())
-        {
-            GameController.Instance.StopTimer();
-        }
+        // if (this == GameController.Instance.GetTargetObject())
+        // {
+        //     GameController.Instance.StopTimer();
+        // }
     }
 
     public void OnDeselect()
     {
+        if(isSelected){
+            isSelected=false;
+        }
         OnDeselectEffect();
         linkedObject?.OnDeselectEffect();
     }
