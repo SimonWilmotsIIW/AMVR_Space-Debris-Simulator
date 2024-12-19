@@ -15,6 +15,7 @@ public class ConeSelect : MonoBehaviour
     Transform newTransform;
     private int upSpeed = 10;
     private int downSpeed = 10;
+    private GameObject selectedListUI;
     void Start()
     {
         //float newDistance =  cone.GetComponent<ConeCollider>().GetDistance();
@@ -22,6 +23,7 @@ public class ConeSelect : MonoBehaviour
         //newTransform = new GameObject().transform;
     highlightedObjects = new List<GameObject>();
     selectedObjects = new List<GameObject>();
+    selectedListUI = GameObject.Find("SelectedList");
     }
 
     void Update()
@@ -51,17 +53,38 @@ public class ConeSelect : MonoBehaviour
             upSpeed=10;
             downSpeed=10;
         }
+
+        float i = -2.5f;
+        foreach (var item in selectedObjects)
+        {
+            fixScaling(item);
+            item.transform.localPosition = new Vector3(i * 0.3f, 0f,0f);
+            i++;
+        }
         //DetectAndHighlightObjects();
     }
 
     private void focusSelectedObjects(){
         foreach(var selected in selectedObjects){
             selected.GetComponent<CelestialObject>().OnDeselect();
+            selected.GetComponent<CelestialObject>().linkedObject.DestroyLinkedObject();
+            Destroy(selected);
         }
         selectedObjects = new List<GameObject>();
         foreach(var selected in highlightedObjects){
-            selectedObjects.Add(selected);
-            selected.GetComponent<CelestialObject>().OnSelect();
+            GameObject clone = Instantiate(selected);
+            clone.transform.SetParent(selectedListUI.transform);
+            clone.transform.position = selectedListUI.transform.position;
+            clone.GetComponent<Orbit>().enabled = false;
+            Outline outline = clone.GetComponent<CelestialObject>().GetComponent<Outline>();
+            if (outline == null)
+            {
+                outline = clone.GetComponent<CelestialObject>().GetComponentInChildren<Outline>();
+            }
+            outline.enabled = false;
+            AddInteractionLink(selected, clone);
+            selectedObjects.Add(clone);
+            selected.GetComponent<CelestialObject>().OnSelect(); 
         }
        // Debug.LogError(selectedObjects.Count);
     }
@@ -85,6 +108,44 @@ public class ConeSelect : MonoBehaviour
             enemy.GetComponent<CelestialObject>().OnUnhover();
 
         }
+    }
+    void AddInteractionLink(GameObject original, GameObject clone)
+    {
+        CelestialObject originalHoverScript = original.GetComponent<CelestialObject>();
+        CelestialObject cloneHoverScript = clone.GetComponent<CelestialObject>();
+
+        if (originalHoverScript != null && cloneHoverScript != null)
+        {
+            originalHoverScript.SetLinkedObject(cloneHoverScript);
+            cloneHoverScript.SetLinkedObject(originalHoverScript);
+        }
+    }
+
+    void fixScaling(GameObject clone) {
+        // float largestDimension = clone.transform.localScale.x;
+        // float scaleFactor = 0.75f / largestDimension; // target/current
+        // clone.transform.localScale = clone.transform.localScale * scaleFactor;
+        float scale = 1000f;
+        switch (clone.name)
+        {
+            case "Earth(Clone)":
+                scale = 0.1f;
+                break;
+            case "ISS(Clone)":
+                scale = 0.015f;
+                break;
+            case "Sputnik1(Clone)":
+                scale = 0.025f;
+                break;
+            case "Moon(Clone)":
+                scale = 0.1f;
+                break;
+            default:
+                // other objects (asteroids, ...)
+                scale = 0.05f;
+                break;
+        }
+        clone.transform.localScale = new Vector3(scale, scale, scale);
     }
 }
 
@@ -149,17 +210,5 @@ public class ConeSelect : MonoBehaviour
 
     //             AddInteractionLink(enemy, clonedEnemy);
     //         }
-    //     }
-    // }
-
-    // void AddInteractionLink(GameObject original, GameObject clone)
-    // {
-    //     CelestialObject originalHoverScript = original.GetComponent<CelestialObject>();
-    //     CelestialObject cloneHoverScript = clone.GetComponent<CelestialObject>();
-
-    //     if (originalHoverScript != null && cloneHoverScript != null)
-    //     {
-    //         originalHoverScript.SetLinkedObject(cloneHoverScript);
-    //         cloneHoverScript.SetLinkedObject(originalHoverScript);
     //     }
     // }

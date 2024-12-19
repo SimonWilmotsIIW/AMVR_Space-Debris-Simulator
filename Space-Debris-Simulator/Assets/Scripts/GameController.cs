@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
 
     public TMP_Text findText;
     public TMP_Text timerText;
-    private CelestialObject targetObject;
+    public CelestialObject targetObject;
 
     private float elapsedTime = 0f;
     private bool isTimerRunning = false;
@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick) || Input.GetKeyDown(KeyCode.O))
         {
             ToggleOrbitVisibility();
         } else if (Input.GetKeyDown(KeyCode.Space) && enableTimer) {
@@ -132,6 +132,5 @@ public class GameController : MonoBehaviour
     private void ResetPlayerPosition() {
         player.transform.position = new Vector3(0f, 0f, -5f);
         player.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-
     }
 }

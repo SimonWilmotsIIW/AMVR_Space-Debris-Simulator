@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CelestialObject : MonoBehaviour, ISelectable
 {
-    private CelestialObject linkedObject;
+    public CelestialObject linkedObject;
 
     public string objectName;
     public string metadata;
@@ -17,17 +17,21 @@ public class CelestialObject : MonoBehaviour, ISelectable
 
     private bool isSelected;
 
-    private void Start()
+    private void Awake()
     {
-        transform.localScale = Vector3.one * sizeMultiplier;
-        if (objectRenderer == null) objectRenderer = GetComponent<Renderer>();
         outline = GetComponent<Outline>();
         if (outline == null)
         {
             outline = GetComponentInChildren<Outline>();
         }
+    }
+
+    private void Start()
+    {
+        transform.localScale = Vector3.one * sizeMultiplier;
+        if (objectRenderer == null) objectRenderer = GetComponent<Renderer>();
         originalColor = objectRenderer.material.color;
-        isSelected=false;
+        isSelected = false;
     }
 
     public void Update() 
@@ -36,6 +40,8 @@ public class CelestialObject : MonoBehaviour, ISelectable
     }
 
     public void OnHover() {
+        Debug.Log("Hover");
+        Debug.Log(isSelected);
         if(!isSelected){
             OnHoverEffect();
             linkedObject?.OnHoverEffect();
@@ -73,23 +79,21 @@ public class CelestialObject : MonoBehaviour, ISelectable
         outline.enabled = true;
         Debug.Log($"Selected: {objectName}");
 
-
-        // if (this == GameController.Instance.GetTargetObject())
-        // {
-        //     GameController.Instance.StopTimer();
-        // }
+        if (this == GameController.Instance.GetTargetObject())
+        {
+            GameController.Instance.StopTimer();
+        }
     }
 
     public void OnDeselect()
     {
-        if(isSelected){
-            isSelected=false;
-        }
+        //isSelected=false;
         OnDeselectEffect();
         linkedObject?.OnDeselectEffect();
     }
     public void OnDeselectEffect()
     {
+        isSelected = false;
         outline.enabled = false;
     }
     public string GetName() {
@@ -99,5 +103,10 @@ public class CelestialObject : MonoBehaviour, ISelectable
     public void SetLinkedObject(CelestialObject other)
     {
         linkedObject = other;
+    }
+
+    public void DestroyLinkedObject()
+    {
+        linkedObject = null;
     }
 }
