@@ -127,17 +127,13 @@ public class ConeSelect : MonoBehaviour
         }
     }
 
-//     void OnDrawGizmos()
-// {
-//     if (cone != null)
-//     {
-//         Vector3 coneCenter = cone.transform.position + cone.transform.forward * (cone.transform.localScale.z / 2);
-//         Vector3 coneSize = new Vector3(cone.transform.localScale.x, cone.transform.localScale.y, cone.transform.localScale.z);
-        
-//         Gizmos.color = Color.red;
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Enter");
+    }
 
-//         Gizmos.matrix = Matrix4x4.TRS(coneCenter, cone.transform.rotation, Vector3.one);
-//         Gizmos.DrawWireCube(Vector3.zero, coneSize);
-//     }
-// }
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Exit");
+    }
 }
